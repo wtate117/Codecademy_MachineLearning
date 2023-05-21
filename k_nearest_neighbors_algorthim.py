@@ -43,3 +43,23 @@ def find_validation_accuracy(training_set, training_labels, validation_set, vali
 x = find_validation_accuracy(training_set, training_labels, validation_set, validation_labels, 3)
 
 print(x)
+
+------- using SKLEARN -------------
+from movies import movie_dataset, labels
+from sklearn.neighbors import KNeighborsClassifier
+
+classifier = KNeighborsClassifier(n_neighbors = 5)
+
+classifier.fit(movie_dataset, labels)
+
+unknown_points = [
+  [0.45, 0.2, 0.5],
+  [0.25, .8, .9],
+  [.1, .1, .9]
+]
+
+guesses = classifier.predict(unknown_points)
+print(guesses)
+
+
+
